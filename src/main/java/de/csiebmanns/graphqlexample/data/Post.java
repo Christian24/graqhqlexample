@@ -52,5 +52,11 @@ public class Post implements HasAuthorName {
         this.comments = comments;
     }
 
+    public Comment addComment(CommentData data) {
+        Comment comment = new Comment(data);
+        this.comments.add(comment);
+        return comment;
+    }
+
 
 }

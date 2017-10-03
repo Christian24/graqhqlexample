@@ -19,6 +19,15 @@ type Query {
 posts: [Post]
 post(title: String!): Post
 }
+input CommentData {
+authorName: String!
+content: String!
+postTitle: String!
+}
+type Mutation {
+createComment(data: CommentData!): Post
+}
 schema {
 query: Query
+mutation: Mutation
 }

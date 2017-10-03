@@ -2,6 +2,7 @@ package de.csiebmanns.graphqlexample;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.csiebmanns.graphqlexample.fetchers.AuthorFetcher;
+import de.csiebmanns.graphqlexample.fetchers.CreateCommentFetcher;
 import de.csiebmanns.graphqlexample.fetchers.PostFetcher;
 import de.csiebmanns.graphqlexample.data.Data;
 import de.csiebmanns.graphqlexample.fetchers.PostsFetcher;
@@ -42,13 +43,19 @@ public class Configuration {
         return new PostsFetcher(repository);
     }
     @Bean
+    public CreateCommentFetcher getCreateComment(Data data) {
+        return new CreateCommentFetcher(data);
+    }
+    @Bean
     public RuntimeWiring buildRuntimeWiring(PostsFetcher postsFetcher,
-                                            PostFetcher postFetcher, AuthorFetcher authorFetcher) {
+                                            PostFetcher postFetcher, AuthorFetcher authorFetcher,
+                                            CreateCommentFetcher createCommentFetcher) {
         return RuntimeWiring.newRuntimeWiring().type("Query",
                 typeWiring -> typeWiring.dataFetcher("posts",postsFetcher)
                         .dataFetcher("post", postFetcher))
                 .type("Post", typeWiring -> typeWiring.dataFetcher("author", authorFetcher))
                 .type("Comment", typeWiring -> typeWiring.dataFetcher("author", authorFetcher))
+                .type("Mutation", typeWiring -> typeWiring.dataFetcher("createComment", createCommentFetcher))
                 .build();
     }
     @Bean

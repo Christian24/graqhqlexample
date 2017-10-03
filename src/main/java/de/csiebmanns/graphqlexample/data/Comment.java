@@ -12,9 +12,9 @@ public class Comment implements HasAuthorName {
     public Comment() {
 
     }
-    public Comment(String authorName, String content) {
-        this.authorName = authorName;
-        this.content = content;
+    public Comment(CommentData data) {
+        this.authorName = data.getAuthorName();
+        this.content = data.getContent();
         this.timestamp = System.currentTimeMillis() / 1000L;
     }
 
