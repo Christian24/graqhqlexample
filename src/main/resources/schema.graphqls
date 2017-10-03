@@ -1,0 +1,24 @@
+type Author {
+name: String!
+email: String
+bio: String
+}
+type Comment {
+content: String!
+timestamp: Float
+author: Author
+}
+type Post {
+title: String!
+author: Author
+content: String
+timestamp: Float
+comments: [Comment]
+}
+type Query {
+posts: [Post]
+post(title: String!): Post
+}
+schema {
+query: Query
+}

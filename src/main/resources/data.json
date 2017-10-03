@@ -1,0 +1,20 @@
+{
+  "authors": [
+    {"name": "Christian",
+    "email": "christian@example.com",
+    "bio": "Some author of ours"},
+    {"name": "Ivana",
+      "email": "ivana@example.com",
+      "bio": "Fulltime tech nerd"},
+    {"name": "Manfred",
+      "email": "manfred@example.com",
+      "bio": "The oldest and wisest at the office"}
+  ],
+  "posts": [{"title": "GraphQL - an introduction", "content": "Have you heard about, GraphQL folks? It is awesome!", "timestamp": 1507024854,
+    "authorName": "Ivana", "comments": [{"authorName": "Christian", "content": "This looks cool!", "timestamp": 1507025427}]},
+    {"title": "Lessons learned", "content": "We recently switched to Java 1.9. It was quite a wild ride.", "timestamp": 1506729600,
+    "authorName": "Manfred", "comments": []},
+    {"title": "Hello world", "content": "Everyone loves posts that just say HELLO WORLD!", "timestamp": 724464000,
+      "authorName": "Christian", "comments": []}
+  ]
+}
